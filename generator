@@ -1,0 +1,16 @@
+#generator是本质上是为了较容易的产生一个列表或者元组，通过某些运算填补每个元素
+#第一种产生generator的方法
+#实例：
+  L = [x * x for x in range(10)]  
+  print(L)
+  g = (x * x for x in range(10))
+  print(g,type(g))
+#将[]转换为（）就可以产生generator，而L是一个list然而g却是一个generator
+#如果想要吧所有的元素打印出来的话需要
+          print(next(g))
+          print(next(g))
+          .........
+#带有 yield 的函数不再是一个普通函数，而是一个生成器generator，可用于迭代，工作原理同上。 
+#yield 是一个类似 return 的关键字，迭代一次遇到yield时就返回yield后面(右边)的值。
+#重点是：下一次迭代时，从上一次迭代遇到的yield后面的代码(下一行)开始执行。 
+

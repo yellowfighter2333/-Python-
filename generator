@@ -11,6 +11,37 @@
           print(next(g))
           .........
 #带有 yield 的函数不再是一个普通函数，而是一个生成器generator，可用于迭代，工作原理同上。 
-#yield 是一个类似 return 的关键字，迭代一次遇到yield时就返回yield后面(右边)的值。
-#重点是：下一次迭代时，从上一次迭代遇到的yield后面的代码(下一行)开始执行。 
+#yield 是一个类似 return 的关键字，迭代一次遇到yield时就返回yield后面)的值。
 
+def createGenerator() :
+    mylist = range(3)
+    for i in mylist :
+        yield i*i
+mygenerator =  createGenerator()
+print(mygenerator)
+for i in mygenerator:
+    print(i)
+#上面是是一个yield的一个用法
+#yield 与 return的区别是yield可以一次调用多次返回，而return则需要多次返回
+def fib2(max):
+	n,a,b = 0,0,1
+	while n < max:
+		yield b
+		a,b = b, a+b
+		n= n+1
+	return 'done'
+for n in fib2(10):
+	print(n)
+每次返回出现yield返回
+
+
+
+def fib2(max):
+	n,a,b = 0,0,1
+	while n < max:
+		yield b
+		a,b = b, a+b
+		n= n+1
+	return 'done'
+for n in fib2(10):
+	print(n)
